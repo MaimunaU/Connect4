@@ -7,8 +7,5 @@ public class Player {
         this.piece = piece;
     }
 
-    public String getPiece()
-    {
-        return piece;
-    }
+    public String getPiece() { return piece; }
 }
