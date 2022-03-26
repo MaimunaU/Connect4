@@ -12,20 +12,30 @@ public class Connect4 {
         System.out.println();
         Board board = new Board(6, 7);
         board.printBoard();
-        boolean win = false;
-        while (!win)
+        boolean running = true;
+        while (running)
         {
-            System.out.print("Player 1, choose a column: ");
+            System.out.print("\nPlayer 1, choose a column: ");
             int column = scan.nextInt();
             scan.nextLine();
             board.dropPiece(column, player1);
+            System.out.println();
             board.printBoard();
-            System.out.print("Player 2, choose a column: ");
+            if (board.horizontalWin() || board.verticalWin())
+            {
+                break;
+            }
+            System.out.print("\nPlayer 2, choose a column: ");
             column = scan.nextInt();
             scan.nextLine();
             board.dropPiece(column, player2);
+            System.out.println();
             board.printBoard();
-            win = true;
+            if (board.horizontalWin() || board.verticalWin())
+            {
+                break;
+            }
         }
+
     }
 }
